@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$BOB – Build on BNB (Réplica Exata - Responsivo)</title>
+    <!-- Font Awesome 6.4 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - For handwritten style -->
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Gochi+Hand&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: sans-serif; /* Default fallback */
+            background-color: #ffffff; /* White background for the main hero section */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Hide horizontal scrollbars */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure it takes full viewport height */
+        }
+
+        /* Custom font for "THIS IS BOB" and other titles */
+        .font-permanent-marker {
+            font-family: 'Permanent Marker', cursive;
+        }
+
+        /* Custom font for paragraphs */
+        .font-gochi-hand {
+            font-family: 'Gochi Hand', cursive;
+        }
+
+        /* Social icon styling */
+        .social-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #0088cc; /* Black background for icons */
+            color: #ffffff; /* White icon color */
+            font-size: 1.5rem;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Caution tape styling */
+        .caution-tape {
+            position: absolute;
+            left: -50%; /* Start off-screen to cover full width after rotation */
+            width: 200%; /* Make it wide enough to cover rotated area */
+            height: 60px; /* Height of the tape */
+            background-color: #FFD700; /* Yellow background */
+            border-top: 3px solid black;
+            border-bottom: 3px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Permanent Marker', cursive; /* Use the handwritten font */
+            font-size: 2.5rem;
+            color: #000000; /* Black text on tape */
+            white-space: nowrap; /* Prevent text wrapping */
+            overflow: hidden; /* Hide overflowing text */
+            z-index: 10; /* Ensure it's above other content if needed */
+        }
+
+        .tape-text {
+            animation: scrollTape 15s linear infinite; /* Animation for scrolling text */
+            padding: 0 20px; /* Padding for text inside tape */
+            display: inline-block; /* Ensure text respects padding and animation */
+        }
+
+        @keyframes scrollTape {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Scroll half the width to create seamless loop */
+        }
+
+        /* Specific positioning for the two crossing tapes */
+        #tape-1 {
+            top: calc(100vh - 100px); /* Position it 100px from the bottom of the viewport */
+            transform: rotate(-10deg); /* Slightly more pronounced angle */
+        }
+
+        #tape-2 {
+            top: calc(100vh - 40px); /* Position it 40px from the bottom of the viewport */
+            transform: rotate(10deg); /* Slightly more pronounced angle */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            /* Adjust hero section text and image sizing */
+            .hero-image img {
+                max-height: 400px; /* Smaller image on mobile */
+            }
+            .hero-text h1 {
+                font-size: 3.5rem; /* Smaller title on mobile */
+            }
+            .hero-text p {
+                font-size: 1.2rem; /* Smaller paragraph on mobile */
+            }
+
+            /* Adjust unified sections */
+            .unified-section {
+                padding: 2rem 1rem; /* Smaller padding on mobile */
+            }
+            .unified-section h2 {
+                font-size: 2.5rem; /* Smaller title on mobile */
+                margin-bottom: 1.5rem;
+            }
+            .unified-section p {
+                font-size: 1.1rem; /* Smaller paragraph on mobile */
+                max-width: none; /* Remove max-width for full width text */
+            }
+            .unified-section .content-wrapper {
+                flex-direction: column; /* Stack columns vertically */
+                text-align: center; /* Center text */
+            }
+            .unified-section .text-content,
+            .unified-section .image-content {
+                width: 100%; /* Full width for columns */
+                padding: 0; /* Remove padding */
+                margin-bottom: 1.5rem; /* Add spacing between elements */
+            }
+            .unified-section .image-content img {
+                max-height: 300px; /* Smaller image in sections on mobile */
+            }
+            .unified-section .text-content h2,
+            .unified-section .text-content p {
+                text-align: center; /* Center text in mobile */
+            }
+
+            /* Adjust caution tape for mobile */
+            .caution-tape {
+                font-size: 1.5rem; /* Smaller font for mobile */
+                height: 40px;
+            }
+            #tape-1 {
+                top: calc(100vh - 80px); /* Adjust for mobile */
+                transform: rotate(-10deg);
+            }
+            #tape-2 {
+                top: calc(100vh - 20px); /* Adjust for mobile */
+                transform: rotate(10deg);
+            }
+        }
+    </style>
+</head>
+<body class="relative">
+    <!-- Main Hero Section (First Section) -->
+    <section id="hero-section" class="flex-grow flex items-center justify-center p-4 bg-white relative overflow-hidden">
+        <div class="container flex flex-col md:flex-row items-center justify-center h-full">
+            <!-- Left Column: Image -->
+            <div class="hero-image flex-shrink-0 w-full md:w-1/2 flex justify-center md:justify-end">
+                <img src="https://i.postimg.cc/LX3xWXcL/IMG-20250711-WA0435.jpg" alt="Stick figure with hard hat and hammer" class="max-w-full h-auto" style="max-height: 400px;">
+            </div>
+
+            <!-- Right Column: Text and Social Icons -->
+            <div class="hero-text w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left ml-0 md:ml-12">
+                <h1 class="text-6xl md:text-7xl font-extrabold text-black mb-4 font-permanent-marker leading-tight">
+                    This is Bob Jr.
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-800 mb-8 font-gochi-hand leading-relaxed max-w-lg">
+                    Bob Jr. wants to follow in his father's footsteps and also become a builder in BNB.
+                    Let's grow together with the BSC.
+                </p>
+                <div class="social-icons-container flex space-x-4">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-x-twitter"></i> <!-- Using X icon for Twitter -->
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fas fa-link"></i> <!-- Placeholder for other crypto link -->
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fas fa-exchange-alt"></i> <!-- Placeholder for another crypto link -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Caution Tape Banners -->
+    <div class="caution-tape" id="tape-1">
+        <span class="tape-text">Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr.</span>
+        <span class="tape-text">Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. </span>
+    </div>
+    <div class="caution-tape" id="tape-2">
+        <span class="tape-text">Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr.</span>
+        <span class="tape-text">Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr. Join Bob Jr.</span>
+    </div>
+
+    <!-- Second Section (Matching Hero Style) -->
+    <section id="section-2" class="unified-section">
+        <div class="content-wrapper">
+            <div class="image-content w-full md:w-1/2 flex justify-center md:justify-end mb-8 md:mb-0">
+                <img src="https://placehold.co/600x400/ffffff/000000?text=Inovacao+e+Escalabilidade" alt="Innovation and Scalability" class="max-w-full h-auto rounded-lg shadow-md">
+            </div>
+            <div class="text-content w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left ml-0 md:ml-12">
+                <h2 class="text-black mb-4 font-permanent-marker">
+                    Por Que Construir na BNB Chain?
+                </h2>
+                <p class="text-gray-800 mb-8 font-gochi-hand">
+                    A BNB Chain oferece uma infraestrutura robusta e escalável, ideal para o desenvolvimento de aplicações descentralizadas de alto desempenho. Com taxas de transação baixas e um ecossistema vibrante, é o lugar perfeito para inovar e expandir seus horizontes.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Third Section (Matching Hero Style - Alternating Layout) -->
+    <section id="section-3" class="unified-section">
+        <div class="content-wrapper reverse-order">
+            <div class="image-content w-full md:w-1/2 flex justify-center md:justify-start mb-8 md:mb-0">
+                <img src="https://placehold.co/600x400/ffffff/000000?text=Comunidade+e+Recursos" alt="Community and Resources" class="max-w-full h-auto rounded-lg shadow-md">
+            </div>
+            <div class="text-content w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left mr-0 md:mr-12">
+                <h2 class="text-black mb-4 font-permanent-marker">
+                    Recursos para Desenvolvedores
+                </h2>
+                <p class="text-gray-800 mb-8 font-gochi-hand">
+                    Oferecemos uma gama completa de ferramentas e recursos para ajudar você a começar e escalar seu projeto. Desde SDKs e APIs até documentação abrangente e suporte comunitário, estamos aqui para garantir o seu sucesso na BNB Chain.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // No specific JavaScript functionality requested for this exact replica,
+        // but adding a simple script tag for completeness if needed later.
+        // For example, if you wanted to dynamically change text or handle clicks.
+    </script>
+</body>
+</html>
